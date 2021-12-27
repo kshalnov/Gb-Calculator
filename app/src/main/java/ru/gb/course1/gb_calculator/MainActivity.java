@@ -1,5 +1,6 @@
 package ru.gb.course1.gb_calculator;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
@@ -21,6 +22,8 @@ public class MainActivity extends AppCompatActivity {
     private Button plusButton;
     private Button dotButton;
     private Button clearButton;
+
+    private Button showResultButton;
 
     private CalculatorModel calculatorModel;
 
@@ -47,6 +50,8 @@ public class MainActivity extends AppCompatActivity {
         plusButton = findViewById(R.id.plus_button);
         dotButton = findViewById(R.id.dot_button);
         clearButton = findViewById(R.id.clear_button);
+
+        showResultButton = findViewById(R.id.show_result_button);
     }
 
     private void initListeners() {
@@ -59,6 +64,18 @@ public class MainActivity extends AppCompatActivity {
         minusButton.setOnClickListener(v -> updateInput(InputSymbol.OP_MINUS));
         plusButton.setOnClickListener(v -> updateInput(InputSymbol.OP_PLUS));
         clearButton.setOnClickListener(v -> updateInput(InputSymbol.CLEAR));
+
+        showResultButton.setOnClickListener(v -> showResultScreen());
+    }
+
+    private void showResultScreen() {
+        List<InputSymbol> inputSymbolList = calculatorModel.getInput();
+        String result = convertInputSymbolsToString(inputSymbolList);
+        ResultActivity.TransferObject transferObject = new ResultActivity.TransferObject(result);
+
+        Intent intent = new Intent(this, ResultActivity.class);
+        intent.putExtra(ResultActivity.RESULT_EXTRA_KEY, transferObject);
+        startActivity(intent);
     }
 
     private void updateInput(InputSymbol inputSymbol) {

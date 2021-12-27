@@ -2,6 +2,9 @@ package ru.gb.course1.gb_calculator.domain.states;
 
 import ru.gb.course1.gb_calculator.domain.entities.InputSymbol;
 
+/**
+ * Самое первое состояние, ожидаем ввода знака (минус) или числа
+ */
 public class SignState extends BaseState {
 
     @Override
