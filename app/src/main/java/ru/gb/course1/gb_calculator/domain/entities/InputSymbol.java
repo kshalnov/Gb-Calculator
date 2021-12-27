@@ -1,4 +1,4 @@
-package ru.gb.course1.gb_calculator;
+package ru.gb.course1.gb_calculator.domain.entities;
 
 public enum InputSymbol {
     NUM_1, NUM_2, NUM_3,

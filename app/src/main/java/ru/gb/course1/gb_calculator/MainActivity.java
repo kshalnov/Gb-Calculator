@@ -8,6 +8,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.List;
 
+import ru.gb.course1.gb_calculator.domain.CalculatorModel;
+import ru.gb.course1.gb_calculator.domain.entities.InputSymbol;
+
 public class MainActivity extends AppCompatActivity {
     private TextView resultTextView;
     private Button num1Button;
