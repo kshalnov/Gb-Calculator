@@ -32,6 +32,20 @@ public class MainActivity extends AppCompatActivity {
         initListeners();
     }
 
+    private void initViews() {
+        resultTextView = findViewById(R.id.result_text_view);
+
+        num1Button = findViewById(R.id.num_1_button);
+        num2Button = findViewById(R.id.num_2_button);
+        num3Button = findViewById(R.id.num_3_button);
+        num0Button = findViewById(R.id.num_0_button);
+
+        minusButton = findViewById(R.id.minus_button);
+        plusButton = findViewById(R.id.plus_button);
+        dotButton = findViewById(R.id.dot_button);
+        clearButton = findViewById(R.id.clear_button);
+    }
+
     private void initListeners() {
         num1Button.setOnClickListener(v -> updateInput(InputSymbol.NUM_1));
         num2Button.setOnClickListener(v -> updateInput(InputSymbol.NUM_2));
@@ -48,20 +62,6 @@ public class MainActivity extends AppCompatActivity {
         calculatorModel.onClickButton(inputSymbol);
         List<InputSymbol> inputSymbolList = calculatorModel.getInput();
         resultTextView.setText(convertInputSymbolsToString(inputSymbolList));
-    }
-
-    private void initViews() {
-        resultTextView = findViewById(R.id.result_text_view);
-
-        num1Button = findViewById(R.id.num_1_button);
-        num2Button = findViewById(R.id.num_2_button);
-        num3Button = findViewById(R.id.num_3_button);
-        num0Button = findViewById(R.id.num_0_button);
-
-        minusButton = findViewById(R.id.minus_button);
-        plusButton = findViewById(R.id.plus_button);
-        dotButton = findViewById(R.id.dot_button);
-        clearButton = findViewById(R.id.clear_button);
     }
 
     private String convertInputSymbolsToString(List<InputSymbol> inputSymbolList) {

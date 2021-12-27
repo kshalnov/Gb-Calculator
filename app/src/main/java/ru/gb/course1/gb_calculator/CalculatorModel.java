@@ -16,7 +16,7 @@ public class CalculatorModel {
             return;
         }
 
-        if (hasDot() && inputSymbol == InputSymbol.DOT) {
+        if (hasDot(input) && inputSymbol == InputSymbol.DOT) {
             return;
         }
 
@@ -35,7 +35,8 @@ public class CalculatorModel {
                 || inputSymbol == InputSymbol.NUM_1
                 || inputSymbol == InputSymbol.NUM_2
                 || inputSymbol == InputSymbol.NUM_3
-                || inputSymbol == InputSymbol.DOT) {
+                || inputSymbol == InputSymbol.DOT
+                || inputSymbol == InputSymbol.OP_MINUS) {
             input.add(inputSymbol);
             return;
         }
@@ -43,7 +44,7 @@ public class CalculatorModel {
         input.add(InputSymbol.UNDEFINED);
     }
 
-    private boolean hasDot() {
+    private static boolean hasDot(List<InputSymbol> input) {
         for (InputSymbol inputSymbol : input) {
             if (inputSymbol == InputSymbol.DOT) {
                 return true;
